@@ -1,0 +1,39 @@
+public class RandomWalker {
+
+    public static void main(String[] args) {
+
+    // WRITE YOUR CODE HERE
+    int n = Integer.parseInt(args[0]);
+    int xVal= 0;
+    int yVal= 0;
+    int step = 0;
+    double SqrDis = 0;
+    System.out.println("(" + xVal + "," + yVal + ")");
+
+    for(int i = 0; i < n; i++){
+        // step = (int)(Math.random()*4) +1;
+        step = (int)(Math.random()*4) +1;
+
+        if(step == 1){
+            xVal++;
+        } 
+        else {
+            if (step ==2){
+                yVal++;
+            } 
+            else {
+                if(step ==3){
+                    xVal--;
+                } 
+                else {
+                    yVal--;
+                }
+            }
+         }
+         System.out.println("(" + xVal + "," + yVal + ")");
+    }
+        SqrDis = Math.pow(xVal,2) + Math.pow(yVal, 2);
+        System.out.println("Squared distance = " + SqrDis);
+}
+}
+
