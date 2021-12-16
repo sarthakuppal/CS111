@@ -1,0 +1,45 @@
+/*************************************************************************
+ *  Compilation:  javac RURottenTomatoes.java
+ *  Execution:    java RURottenTomatoes
+ *
+ *  @author: Sarthak Uppal / su98
+ *
+ * RURottenTomatoes creates a 2 dimensional array of movie ratings 
+ * from the command line arguments and displays the index of the movie 
+ * that has the highest sum of ratings.
+ *
+ *  java RURottenTomatoes 3 2 5 2 3 3 4 1
+ *  0
+ *************************************************************************/
+
+public class RURottenTomatoes {
+
+    public static void main(String[] args) {
+
+		// WRITE YOUR CODE HERE
+		int reviewers = Integer.parseInt(args[0]);
+		int movies = Integer.parseInt(args[1]);
+
+		int[][] ratings = new int[reviewers][movies];
+
+		int index = 2;
+		for(int i = 0; i < reviewers; i++){
+			for(int j = 0; j < movies; j++){
+				ratings[i][j] = Integer.parseInt(args[index++]);
+			}
+		}
+		int highestSum = 0;
+		int highestIndex = 0;
+		for (int i = 0; i < movies; i++ ){
+			int counter = 0;
+			for ( int j = 0; j < reviewers; j++){
+				counter+= ratings[j][i];
+			}
+			if (counter > highestSum){
+				highestSum = counter;
+				highestIndex = i;
+			}
+		}
+		System.out.println (highestIndex);
+	}
+}
